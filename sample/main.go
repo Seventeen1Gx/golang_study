@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "github.com/Seventeen1Gx/golang_study/sample/matchers"
-	"github.com/Seventeen1Gx/golang_study/sample/search"
+	_ "golang_study/sample/matchers"
+	"golang_study/sample/search"
 	"log"
 	"os"
 )

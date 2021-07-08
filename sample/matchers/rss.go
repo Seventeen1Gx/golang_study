@@ -8,50 +8,49 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/Seventeen1Gx/golang_study/sample/search"
+	"golang_study/sample/search"
 )
 
 type (
 	item struct {
-		XMLName xml.Name `xml:"item"`
-		PubDate string `xml:"pubDate"`
-		Title string `xml:"title"`
-		Description string `xml:"description"`
-		Link string `xml:"link"`
-		GUID string `xml:"guid"`
-		GeoRssPoint string `xml:"georss:point"`
+		XMLName     xml.Name `xml:"item"`
+		PubDate     string   `xml:"pubDate"`
+		Title       string   `xml:"title"`
+		Description string   `xml:"description"`
+		Link        string   `xml:"link"`
+		GUID        string   `xml:"guid"`
+		GeoRssPoint string   `xml:"georss:point"`
 	}
 
 	image struct {
 		XMLName xml.Name `xml:"image"`
-		URL string `xml:"url"`
-		Title string `xml:"title"`
-		Link string `xml:"link"`
+		URL     string   `xml:"url"`
+		Title   string   `xml:"title"`
+		Link    string   `xml:"link"`
 	}
 
 	channel struct {
-		XMLName xml.Name `xml:"channel"`
-		Title string `xml:"title"`
-		Description string `xml:"description"`
-		Link string `xml:"link"`
-		PubDate string `xml:"pubDate"`
-		LastBuildDate string `xml:"lastBuildDate"`
-		TTL string `xml:"ttl"`
-		Language string `xml:"language"`
-		ManagingEditor string `xml:"managingEditor"`
-		WebMaster string `xml:"webMaster"`
-		Image string `xml:"image"`
-		Item []item `xml:"item"`
+		XMLName        xml.Name `xml:"channel"`
+		Title          string   `xml:"title"`
+		Description    string   `xml:"description"`
+		Link           string   `xml:"link"`
+		PubDate        string   `xml:"pubDate"`
+		LastBuildDate  string   `xml:"lastBuildDate"`
+		TTL            string   `xml:"ttl"`
+		Language       string   `xml:"language"`
+		ManagingEditor string   `xml:"managingEditor"`
+		WebMaster      string   `xml:"webMaster"`
+		Image          string   `xml:"image"`
+		Item           []item   `xml:"item"`
 	}
 
 	rssDocument struct {
 		XMLName xml.Name `xml:"rss"`
-		Channel channel `xml:"channel"`
+		Channel channel  `xml:"channel"`
 	}
 )
 
 type rssMatcher struct {
-
 }
 
 func init() {
@@ -59,7 +58,7 @@ func init() {
 	search.Register("rss", matcher)
 }
 
-func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error)  {
+func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
 	if feed.URI == "" {
 		return nil, errors.New("No rss feed URI provided")
 	}

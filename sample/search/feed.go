@@ -6,7 +6,6 @@ import (
 )
 
 const dataFile = `/Users/bytedance/go/src/golang_study/sample/data/data.json`
-//
 
 type Feed struct {
 	Name string `json:"site"`

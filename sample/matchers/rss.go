@@ -60,7 +60,7 @@ func init() {
 
 func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
 	if feed.URI == "" {
-		return nil, errors.New("No rss feed URI provided")
+		return nil, errors.New("no rss feed URI provided")
 	}
 
 	resp, err := http.Get(feed.URI)
